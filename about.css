@@ -1,0 +1,141 @@
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 4%;
+  position: relative;
+  overflow: hidden;
+  /* ⬇️ cuma ganti warna background */
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #020617 100%);
+  border-radius: 20px;
+}
+
+/* WRAPPER FIX — WAJIB ADA */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+}
+
+/* FLOATING LIGHT */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  /* ⬇️ tambahkan warna glow biru */
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35), transparent 60%);
+  filter: blur(100px);
+  z-index: 0;
+  animation: floatLight 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatLight {
+  from { transform: translateY(0); }
+  to { transform: translateY(40px); }
+}
+
+/* ===== LEFT SIDE ===== */
+.about-left {
+  z-index: 2;
+  color: #e5e7eb;
+  backdrop-filter: blur(15px);
+  /* ⬇️ ganti panel jadi gelap solid seperti section lain */
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 20px;
+  padding: 2.5rem;
+  /* ⬇️ shadow sedikit lebih kuat */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+  transition: all 0.4s ease;
+}
+
+.about-left:hover {
+  transform: translateY(-6px);
+  /* ⬇️ glow kebiruan lebih lembut */
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.95);
+}
+
+.about-left h2 {
+  font-size: 2.4rem;
+  /* ⬇️ samain gradien judul sama project/skills */
+  background: linear-gradient(90deg, #06b6ff, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.about-left p {
+  /* ⬇️ teks jadi abu kebiruan */
+  color: #cbd5f5;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+/* ===== RIGHT SIDE (TOMBOL) ===== */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  align-items: stretch; /* tombol ikut full width */
+}
+
+/* ===== TOMBOL FULL WIDTH & RATA KIRI ===== */
+.about-btn {
+  display: block;
+  width: 100%;               /* semua tombol lebar sama */
+  text-align: left;          /* teks rata kiri */
+  padding: 14px 20px;
+  border-radius: 10px;
+  /* ⬇️ border & background disesuaikan tema gelap */
+  border: 1.5px solid #1f2937;
+  background: #111827;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Hover Effect */
+.about-btn:hover {
+  border-color: #06b6ff;
+  color: #020617;
+  background: #06b6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(6, 182, 255, 0.5);
+}
+
+.about-btn:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-left {
+    padding: 2rem;
+  }
+  .about-left h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-left p {
+    font-size: 0.9rem;
+  }
+  .about-btn {
+    padding: 12px 16px;
+  }
+}

@@ -1,0 +1,331 @@
+/* ===== PAGE WRAPPER ===== */
+
+.project-page {
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #020617 100%);
+  color: #fff;
+  padding: 3.5rem 1.5rem 4rem;
+  border-radius: 32px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  border: 1px solid #111827;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.9);
+}
+
+.proj-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #06b6ff; /* biru neon seperti My Skills Overview */
+}
+
+.proj-subtitle {
+  text-align: center;
+  color: #9ca3c7; /* abu kebiruan lembut */
+  margin-top: 8px;
+  margin-bottom: 32px;
+  font-size: 0.96rem;
+}
+
+/* ===== GRID (3 KOTAK KATEGORI) ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* ===== CARD KATEGORI ===== */
+.project-card {
+  background: #111827; /* panel seperti card radar chart */
+  border-radius: 26px;
+  border: 1px solid #111827;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #1f2937;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+}
+
+/* BODY DALAM CARD */
+.project-body {
+  padding: 0;
+  text-align: left;
+}
+
+.project-body h2 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #06b6ff; /* judul card biru terang */
+}
+
+.project-body p {
+  color: #cbd5f5;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+/* TAG TEKNOLOGI (umum, dipakai juga di modal) */
+.project-tech {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.project-tech span {
+  background: #020617;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: #9ccfff;
+  border: 1px solid #1d4ed8;
+}
+
+/* ACTIONS DI DALAM CARD */
+.project-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+
+/* ===== TOMBOL VIEW PROJECT DI CARD ===== */
+.project-btn {
+  background: #06b6ff;
+  border: none;
+  outline: none;
+  color: #f9fafb;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.project-btn:hover {
+  background: #0390d6;
+}
+
+.project-btn svg {
+  font-size: 0.9rem;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  overflow-y: auto; /* kalau konten tinggi, scroll di overlay */
+}
+
+.modal-card {
+  background: #111827; /* sama dengan card besar */
+  padding: 18px 18px 16px;
+  border-radius: 26px;
+  width: min(720px, 100%);
+  border: 1px solid #1f2937;
+  animation: popUp 0.25s ease;
+  color: #e5e7eb;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+  max-height: calc(100vh - 40px); /* supaya nggak lebih tinggi dari layar */
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER MODAL (judul + close) */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.modal-header h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #06b6ff;
+}
+
+/* LIST PROJECT DI DALAM MODAL */
+.modal-project-list {
+  margin-top: 4px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Scrollbar halus */
+.modal-project-list::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-project-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-project-list::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 999px;
+}
+
+/* TEXT KOSONG */
+.empty-text {
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+/* ITEM PROJECT DI MODAL */
+.modal-project-item {
+  display: flex;
+  gap: 12px;
+  background: #0b1220; /* sedikit lebih terang dari background modal */
+  border-radius: 18px;
+  padding: 12px;
+  border: 1px solid #1f2937;
+}
+
+.modal-project-item img {
+  width: 90px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.modal-project-content h3 {
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+  color: #e5e7eb;
+}
+
+.modal-project-content p {
+  font-size: 0.86rem;
+  margin-bottom: 6px;
+  color: #e5e7eb;
+}
+
+/* TAG TEKNOLOGI DI MODAL */
+.modal-tech span {
+  background: #022c22;
+  border: 1px solid #0f766e;
+  color: #6ee7b7;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  background: transparent;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  background: #020617;
+  border-color: #06b6ff;
+  color: #06b6ff;
+}
+
+/* TOMBOL VIEW PROJECT DI DALAM MODAL */
+.modal-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #06b6ff;
+  color: #f9fafb;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.modal-view-btn:hover {
+  background: #0390d6;
+}
+
+/* ANIMASI MODAL */
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .project-page {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .proj-title {
+    font-size: 1.8rem;
+  }
+
+  .project-card {
+    padding: 20px 16px;
+  }
+
+  .modal-card {
+    padding: 16px 14px 12px;
+  }
+}
+
+/* =============================
+   SAMAKAN POSISI TOMBOL PROJECT
+============================= */
+
+/* pastikan card flex penuh */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* body ambil ruang fleksibel */
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* deskripsi boleh memanjang */
+.project-body p {
+  flex-grow: 1;
+}
+
+/* tombol selalu di bawah */
+.project-actions {
+  margin-top: auto;
+}

@@ -1,0 +1,247 @@
+/* 🌌 Container utama */
+.pf-skill-chart {
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #020617 100%);
+  color: #fff;
+  padding: 4rem 1.5rem;
+  border-radius: 32px;
+  text-align: center;
+  max-width: 1300px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  border: 1px solid #111827;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.9);
+}
+
+/* ✨ Judul */
+.chart-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  background: linear-gradient(90deg, #06b6ff, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* 📘 Subjudul */
+.pf-section-lead {
+  color: #9ca3c7;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* 📊 Wrapper chart */
+.chart-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* 🧊 Box chart individual */
+.chart-box {
+  flex: 1 1 340px;
+  max-width: 480px;
+  background: #111827; /* panel sama seperti card project */
+  border-radius: 26px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+  transition: all 0.35s ease;
+  border: 1px solid #111827;
+}
+
+.chart-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+}
+
+/* 🧠 Judul dalam chart */
+.chart-box h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #06b6ff;
+}
+
+/* 📈 Bar progres */
+.progress-wrapper {
+  margin-top: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.progress-bar {
+  position: relative;
+  width: 70%;
+  height: 12px;
+  background: #020617;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #06b6ff, #3b82f6);
+  border-radius: 12px;
+  transition: width 0.4s ease;
+}
+
+.percent-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #9ccfff;
+}
+
+/* 📘 Deskripsi skill */
+.chart-desc {
+  position: relative;
+  margin-top: 2.5rem;
+  background: #0b1220; /* panel lebih gelap */
+  border-radius: 20px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 700px;
+  margin-inline: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+  transition: all 0.4s ease;
+  line-height: 1.7;
+  border: 1px solid #111827;
+}
+
+.chart-desc.soft {
+  border-left: 5px solid #06b6ff;
+}
+
+.chart-desc.hard {
+  border-left: 5px solid #f97316;
+}
+
+.chart-desc h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e5e7eb;
+}
+
+.chart-desc p {
+  font-size: 1rem;
+  color: #d1d5db;
+}
+
+/* 📱 Responsif */
+@media (max-width: 1024px) {
+  .chart-box {
+    flex: 1 1 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pf-skill-chart {
+    padding: 3rem 1rem;
+  }
+
+  .chart-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-box {
+    width: 95%;
+    max-width: 500px;
+  }
+
+  .chart-desc {
+    width: 95%;
+    padding: 1.6rem;
+  }
+
+  /* (opsional) tombol close lain kalau dipakai di skill */
+  .close-btn {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: linear-gradient(90deg, #06b6ff, #3b82f6);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.35);
+  }
+
+  .close-btn:hover {
+    background: linear-gradient(90deg, #3b82f6, #06b6ff);
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(37, 99, 235, 0.55);
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-title {
+    font-size: 1.8rem;
+  }
+
+  .pf-section-lead {
+    font-size: 0.9rem;
+  }
+
+  .chart-box h3 {
+    font-size: 1.2rem;
+  }
+
+  .chart-desc h3 {
+    font-size: 1.2rem;
+  }
+
+  .chart-desc p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Grid kecil untuk daftar skill (ikon/tags) */
+.pf-skills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 400px;
+  margin: 25px auto 0;
+  justify-items: center;
+}
+
+/* Tombol close (ikon X di pojok box deskripsi) */
+.close-icon {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #7fd2ff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.close-icon:hover {
+  color: #06b6ff;
+  text-shadow: 0 0 8px rgba(6, 182, 255, 0.7);
+  transform: scale(1.1);
+}
+/* Tooltip untuk ikon skill */
+.skill-tooltip {
+  position: absolute;
+  background: #111827;
+  color: #e5e7eb;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
